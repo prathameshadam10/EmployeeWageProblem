@@ -1,23 +1,27 @@
 import random
 
-if __name__ == '__main__':
-    print("Welcome to Employee Wage Computation Program")
-    emp_full_time = 1
-    emp_part_time = 2
-    emp_wage_per_hour = 20
-    emp_hrs = 0
-    daily_emp_wage = 0
+EMP_FULL_TIME = 1
+EMP_PART_TIME = 2
+EMP_WAGE_PER_HOUR = 20
 
-    emp_check = random.randint(0, 2)
-    if emp_check == emp_full_time:
+
+def get_emp_hours(x):
+    emp_hrs = 0
+    if x == EMP_FULL_TIME:
         emp_hrs = 8
-        print("Employee Full-time Present")
-    elif emp_check == emp_part_time:
+    elif x == EMP_PART_TIME:
         emp_hrs = 4
-        print("Employee Part-time Present")
     else:
         emp_hrs = 0
-        print("Employee Absent")
-    daily_emp_wage = emp_hrs * emp_wage_per_hour
+    return emp_hrs
+
+
+def find_daily_wage():
+    y = get_emp_hours(random.randint(0, 2))
+    daily_emp_wage = y * EMP_WAGE_PER_HOUR
     print('Emp Wage : ' + str(daily_emp_wage))
 
+
+if __name__ == '__main__':
+    print("Welcome to Employee Wage Computation Program")
+    find_daily_wage()
